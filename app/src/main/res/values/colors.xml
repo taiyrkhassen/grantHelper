@@ -3,4 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="big_chances">#76EC00</color>
+    <color name="middle_chances">#B89D09</color>
+    <color name="low_chances">#FF0000</color>
 </resources>
