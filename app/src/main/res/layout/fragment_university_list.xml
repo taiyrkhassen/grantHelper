@@ -20,6 +20,7 @@
             android:minHeight="48dp">
 
             <LinearLayout
+                android:padding="7dp"
                 android:id="@+id/fragmentUniversityListHorizontalButtonContainer"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

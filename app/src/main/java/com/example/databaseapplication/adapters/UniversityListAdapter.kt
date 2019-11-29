@@ -5,8 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.databaseapplication.R
-import com.example.databaseapplication.interfaces.UniversalClickListener
-import com.example.databaseapplication.interfaces.UniversalViewClickListener
+import com.example.databaseapplication.callbacks.UniversalClickListener
+import com.example.databaseapplication.callbacks.UniversalViewClickListener
 import com.example.databaseapplication.mvp.models.University
 
 class UniversityListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -21,7 +21,7 @@ class UniversityListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var mItemImageClickListener: UniversalClickListener? = null
     private var mItemClickListener: UniversalViewClickListener? = null
 
-    fun setOnItemClickListener(click :UniversalViewClickListener){
+    fun setOnItemClickListener(click : UniversalViewClickListener){
         mItemClickListener = click
     }
 
