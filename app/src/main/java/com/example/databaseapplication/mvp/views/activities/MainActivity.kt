@@ -2,6 +2,7 @@ package com.example.databaseapplication.mvp.views.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.util.Log.d
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -20,14 +21,14 @@ class MainActivity : AppCompatActivity(), MainView {
 
     lateinit var presenter: MainPresenter
 
-    private var fragmentProfile = ProfileFragment()
-    private var fragmentList = ListUniversityFragment()
-    private var fragmentInfo = InformationAboutUsFragment()
+    private var fragmentProfile:Fragment = ProfileFragment()
+    private var fragmentList:Fragment = ListUniversityFragment()
+    private var fragmentInfo:Fragment = InformationAboutUsFragment()
 
     /**
      * Активный текущий фрагмент
      */
-    private var active = Fragment()
+    private var active:Fragment = fragmentProfile
     private var fragmentManager = supportFragmentManager
 
     /**
@@ -45,14 +46,17 @@ class MainActivity : AppCompatActivity(), MainView {
             when (it.itemId) {
                 R.id.navigation_profile -> {
                     changeFragment(fragmentProfile)
+                    Log.i("start","changed1")
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_information ->{
                     changeFragment(fragmentInfo)
+                    Log.i("start","changed2")
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_list->{
                     changeFragment(fragmentList)
+                    Log.i("start","changed3")
                     return@OnNavigationItemSelectedListener true
                 }
 
@@ -67,7 +71,12 @@ class MainActivity : AppCompatActivity(), MainView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        presenter = MainPresenter(this)
+        fragmentManager.beginTransaction().add(R.id.content, fragmentInfo, "3").hide(fragmentInfo).commit();
+        fragmentManager.beginTransaction().add(R.id.content, fragmentList, "2").hide(fragmentList).commit();
+        fragmentManager.beginTransaction().add(R.id.content,fragmentProfile, "1").commit();
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
 
     }
 
@@ -80,4 +89,5 @@ class MainActivity : AppCompatActivity(), MainView {
             noInternetConnection()
         }
     }
+
 }
