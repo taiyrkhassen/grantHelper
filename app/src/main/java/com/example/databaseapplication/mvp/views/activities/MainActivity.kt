@@ -36,6 +36,9 @@ class MainActivity : AppCompatActivity(), MainView {
     companion object {
         const val TAB = "TAB"
     }
+    init {
+        presenter = MainPresenter(this)
+    }
 
     private val mOnNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener {
@@ -70,7 +73,8 @@ class MainActivity : AppCompatActivity(), MainView {
 
     private fun changeFragment(fragment: Fragment) {
         if(presenter.isOnline()) {
-            fragmentManager.beginTransaction().hide(active).show(fragment).commit()
+            fragmentManager.beginTransaction()
+                .hide(active).show(fragment).commit()
             active = fragment
         } else {
             noInternetConnection()
