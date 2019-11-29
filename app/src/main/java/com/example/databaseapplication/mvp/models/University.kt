@@ -2,18 +2,20 @@ package com.example.databaseapplication.mvp.models
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
-
+//Нужно доделать!!!!!!!
 data class University(
     @SerializedName("id")
     val id:Int?,
-    @SerializedName("name")
+    @SerializedName("universityName")
     val name:String?,
-    @SerializedName("phone_number")
-    val phone:String?,
-    @SerializedName("address")
-    val address: String,
+//    @SerializedName("phone_number")
+//    val phone:String?,
+    @SerializedName("universityCity")
+    val address: String
+    /*
     @SerializedName("speciality")
     val speciality: Speciality,
     @SerializedName("image_small")
     val imageSmall:String?
+    */
 ): Serializable

@@ -1,5 +1,6 @@
 package com.example.databaseapplication.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,12 +44,12 @@ class UniversityListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             return 0
         return list.size
     }
-
+    fun addToList(list: ArrayList<University>){
+        this.list?.addAll(list)
+    }
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         fun bindData(item: University, position: Int){
-
-
-
+            Log.i("start",item.name.toString())
         }
 
 

@@ -49,11 +49,12 @@ dependencies {
     // RXJava
     implementation 'io.reactivex.rxjava2:rxjava:2.1.14'
     implementation 'com.google.android.material:material:1.0.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
 
     //anko
     implementation "org.jetbrains.anko:anko:0.10.8"
 
     //circle imageView
     implementation 'de.hdodenhof:circleimageview:3.0.1'
-
+    implementation 'com.google.android.material:material:1.2.0-alpha02'
 }
