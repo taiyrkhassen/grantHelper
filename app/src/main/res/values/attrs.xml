@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomPlaceholderView">
+        <attr name="animation_placeholder" format="reference"/>
+        <attr name="text_placeholder" format="string"/>
+        <attr name="desc_placeholder" format="string"/>
+        <attr name="button_title_placeholder" format="string"/>
+
+        <attr name="placeholder_type" format="enum">
+            <enum name="NO_INTERNET_CONNECTION" value="0"/>
+        </attr>
+    </declare-styleable>
+</resources>

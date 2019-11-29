@@ -1,4 +1,4 @@
-package com.example.databaseapplication.interfaces
+package com.example.databaseapplication.callbacks
 
 /**
  * Created by Khassen Taiyr on 28,Ноябрь,2019
