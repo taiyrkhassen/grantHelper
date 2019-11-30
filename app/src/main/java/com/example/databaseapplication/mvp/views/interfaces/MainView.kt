@@ -1,5 +1,8 @@
 package com.example.databaseapplication.mvp.views.interfaces
 
-interface MainView :BaseMvpView{
+import androidx.fragment.app.Fragment
 
+interface MainView :BaseMvpView{
+    fun changeFragment(fragment: Fragment)
+    fun targetFragment():Fragment
 }

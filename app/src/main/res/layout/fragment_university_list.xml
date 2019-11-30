@@ -42,7 +42,9 @@
                     android:paddingEnd="12dp"
                     android:paddingBottom="8dp"
                     android:text="Сортировка\n по специальности"
-                    android:textColor="#4A5EA8" />
+                    android:textColor="#4A5EA8"
+                    android:layout_marginRight="5dp"
+                    android:drawableLeft="@drawable/ic_sort" />
 
                 <TextView
                     android:layout_marginStart="8dp"
@@ -59,7 +61,8 @@
                     android:paddingEnd="12dp"
                     android:paddingBottom="8dp"
                     android:text="Сортировка\n по университету"
-                    android:textColor="#4A5EA8" />
+                    android:textColor="#4A5EA8"
+                    android:layout_marginLeft="8dp" />
 
             </LinearLayout>
 
