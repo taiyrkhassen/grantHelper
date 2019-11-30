@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".mvp.views.activities.NoInternetConnectionActivity">
-
+        </activity>
+        <activity android:name=".mvp.views.activities.DetailUniversityActivity">
         </activity>
     </application>
 
