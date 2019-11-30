@@ -71,6 +71,7 @@ class MainActivity : AppCompatActivity(), MainView {
         addTabs()
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
+
     }
 
     private fun changeFragment(fragment: Fragment) {
