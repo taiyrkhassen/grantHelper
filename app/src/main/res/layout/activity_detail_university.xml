@@ -75,7 +75,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="16dp" />
+                android:layout_marginTop="16dp"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:id="@+id/main_content"
@@ -114,22 +115,24 @@
                     android:ellipsize="end"
                     android:fontFamily="@font/roboto"
                     android:textColor="#000"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp" />
+
                 <LinearLayout
-                    android:layout_marginTop="7dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_gravity="center"
+                    android:layout_marginTop="7dp"
                     android:gravity="center"
+                    android:orientation="horizontal"
                     android:padding="5dp"
                     android:weightSum="2">
 
                     <TextView
-                        android:layout_marginStart="8dp"
                         android:id="@+id/detailButtonCall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
                         android:background="@drawable/rounded_shape_call"
                         android:drawableStart="@drawable/ic_call"
                         android:drawablePadding="8dp"
@@ -139,14 +142,14 @@
                         android:paddingEnd="12dp"
                         android:paddingBottom="8dp"
                         android:text="Позвонить"
-                        android:textColor="#fff"
-                        android:layout_weight="1"/>
+                        android:textColor="#fff" />
 
                     <TextView
-                        android:layout_marginStart="8dp"
                         android:id="@+id/detailButtonWeb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
                         android:background="@drawable/rounded_shape_web"
                         android:drawableStart="@drawable/ic_web"
                         android:drawablePadding="8dp"
@@ -156,13 +159,7 @@
                         android:paddingEnd="12dp"
                         android:paddingBottom="8dp"
                         android:text="Сайт"
-                        android:layout_weight="1"
                         android:textColor="#fff" />
-
-
-
-
-
 
 
                 </LinearLayout>

@@ -56,12 +56,11 @@ dependencies {
 
     //circle imageView
     implementation 'de.hdodenhof:circleimageview:3.0.1'
-<<<<<<< HEAD
+
     implementation 'com.google.android.material:material:1.2.0-alpha02'
-=======
+
 
     //lottie
     implementation 'com.airbnb.android:lottie:3.2.2'
 
->>>>>>> 9fad186c4e1d630b84c4f8dcff2ca662ac1de019
 }

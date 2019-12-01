@@ -12,29 +12,31 @@
         android:orientation="vertical">
 
         <HorizontalScrollView
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:scrollbars="none"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="48dp">
+            android:minHeight="48dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:scrollbars="none">
 
             <LinearLayout
-                android:padding="7dp"
                 android:id="@+id/fragmentUniversityListHorizontalButtonContainer"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal|center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="7dp">
 
                 <TextView
-                    android:layout_marginEnd="5dp"
-                    android:layout_gravity="center_horizontal"
                     android:id="@+id/fragmentUniversityListSortSpecialityButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
                     android:background="@drawable/rounded_shape_white"
                     android:drawableStart="@drawable/ic_sort"
+                    android:drawableLeft="@drawable/ic_sort"
                     android:drawablePadding="8dp"
                     android:foreground="?attr/selectableItemBackground"
                     android:paddingStart="12dp"
@@ -42,16 +44,15 @@
                     android:paddingEnd="12dp"
                     android:paddingBottom="8dp"
                     android:text="Сортировка\n по специальности"
-                    android:textColor="#4A5EA8"
-                    android:layout_marginRight="5dp"
-                    android:drawableLeft="@drawable/ic_sort" />
+                    android:textColor="#4A5EA8" />
 
                 <TextView
-                    android:layout_marginStart="8dp"
-                    android:layout_gravity="center_horizontal"
                     android:id="@+id/fragmentUniversityListSortUniversityButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
                     android:background="@drawable/rounded_shape_white"
                     android:drawableStart="@drawable/ic_sort"
                     android:drawablePadding="8dp"
@@ -61,20 +62,21 @@
                     android:paddingEnd="12dp"
                     android:paddingBottom="8dp"
                     android:text="Сортировка\n по университету"
-                    android:textColor="#4A5EA8"
-                    android:layout_marginLeft="8dp" />
+                    android:textColor="#4A5EA8" />
 
             </LinearLayout>
 
         </HorizontalScrollView>
+
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/fragmentUniversityListSwipeRefreshLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/fragmentUniversityListSwipeRefreshLayout">
+            android:layout_height="match_parent">
+
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fragmentUniversityListRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/fragmentUniversityListRecyclerView"/>
+                android:layout_height="wrap_content" />
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
 

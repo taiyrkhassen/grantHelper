@@ -4,6 +4,7 @@
     xmlns:tool="http://schemas.android.com/tools"
     android:id="@+id/mainLayoutFragmentProfile"
     android:layout_width="match_parent"
+    android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
     android:layout_height="match_parent"
     android:background="#F1F2F8"
     android:fitsSystemWindows="true">
