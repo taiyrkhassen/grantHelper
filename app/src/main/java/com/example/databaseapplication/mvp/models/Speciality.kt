@@ -11,5 +11,9 @@ data class Speciality(
     @SerializedName("ent_score_russian")
     val entScoreRussian:Int?,
     @SerializedName("ent_score_kazakh")
-    val entScoreKazakh:Int?
+    val entScoreKazakh:Int?,
+    @SerializedName("profession")
+    val profession: Profession,
+    @SerializedName("chance_score")
+    val chance_score: Double
 ) : Serializable

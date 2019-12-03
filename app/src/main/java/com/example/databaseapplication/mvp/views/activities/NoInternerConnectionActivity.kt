@@ -13,7 +13,7 @@ class NoInternetConnectionActivity : AppCompatActivity(), InternetConnectionView
         super.onCreate(savedInstanceState)
         setContentView(R.layout.nointernet_activity)
     }
-
+ 
 
 
     fun isOnline(): Boolean {

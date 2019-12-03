@@ -42,6 +42,7 @@
 
                     <ImageButton
                         android:id="@+id/detailBackButton"
+                        android:onClick="onBackPressed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
@@ -99,6 +100,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/roboto"
+                    android:id="@+id/city"
                     android:text="Nur-Sultan, Kazakhstan"
                     android:textColor="#000" />
 
@@ -170,5 +172,16 @@
 
     </androidx.core.widget.NestedScrollView>
 
+    <com.example.databaseapplication.ui.CustomPlaceholderView
+        android:id="@+id/noDataFound_detail"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:placeholder_type="NO_DATA_FOUND"
+        app:animation_placeholder="@raw/lego_loader"
+        app:text_placeholder="Упс.. Обьект с таким айди не найден"
+        app:desc_placeholder="Попробуйте еще раз"
+        app:button_title_placeholder="Повторить"
+        android:layout_gravity="center"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

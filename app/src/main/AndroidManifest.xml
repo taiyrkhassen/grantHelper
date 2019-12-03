@@ -4,6 +4,7 @@
 
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,16 +12,21 @@
         android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".DatabaseApp"
         android:theme="@style/AppTheme">
-        <activity android:name=".mvp.views.activities.MainActivity">
+        <activity android:name=".mvp.views.activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBarWithStatusBar">
+
+        </activity>
+        <activity android:name=".mvp.views.activities.NoInternetConnectionActivity">
+        </activity>
+        <activity android:name=".mvp.views.activities.DetailUniversityActivity"></activity>
+        <activity android:name=".mvp.views.activities.BlankActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".mvp.views.activities.NoInternetConnectionActivity">
-
         </activity>
     </application>
 

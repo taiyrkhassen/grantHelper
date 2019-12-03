@@ -26,8 +26,5 @@ class ProfileFragment(var presenter: MainPresenter) : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        setOnClickListener {
-//            startActivity<NoInternetConnectionActivity>()
-//        }
     }
 }

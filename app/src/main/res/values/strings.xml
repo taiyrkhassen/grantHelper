@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">databaseApplication</string>
+
+    <string-array name="array_prof">
+        <item>Математика</item>
+        <item>География</item>
+        <item>Физика</item>
+    </string-array>
+
+    <string-array name="array_city">
+        <item>Алматы</item>
+        <item>Нур-Султан</item>
+        <item>Пафлодар</item>
+    </string-array>
+
 </resources>

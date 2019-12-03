@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(), MainView {
     /**
      * Активный текущий фрагмент
      */
-    lateinit private var active:Fragment
+    private var active = Fragment()
     private var fragmentManager = supportFragmentManager
 
     /**
@@ -37,9 +37,6 @@ class MainActivity : AppCompatActivity(), MainView {
      */
     companion object {
         const val TAB = "TAB"
-    }
-    init {
-        active = Fragment()
     }
 
     private val mOnNavigationItemSelectedListener =
@@ -69,11 +66,10 @@ class MainActivity : AppCompatActivity(), MainView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
 
         addTabs()
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-
-
     }
 
     override fun changeFragment(fragment: Fragment) {
@@ -85,10 +81,14 @@ class MainActivity : AppCompatActivity(), MainView {
             noInternetConnection()
         }
     }
+
     override fun targetFragment(): Fragment {
         return active
     }
+
     private fun addTabs(){
+        active = fragmentProfile
+        navigation.selectedItemId = R.id.navigation_profile
         fragmentManager.beginTransaction().add(R.id.content, fragmentInfo, "3").hide(fragmentInfo)
             .commit()
         fragmentManager.beginTransaction().add(R.id.content, fragmentList, "2").hide(fragmentList)

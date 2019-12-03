@@ -8,14 +8,16 @@ data class University(
     val id:Int?,
     @SerializedName("universityName")
     val name:String?,
-//    @SerializedName("phone_number")
-//    val phone:String?,
+    @SerializedName("phone_number")
+    val phone:String?,
     @SerializedName("universityCity")
-    val address: String
-    /*
+    val address: String,
     @SerializedName("speciality")
     val speciality: Speciality,
     @SerializedName("image_small")
-    val imageSmall:String?
-    */
+    val imageSmall:String?,
+    @SerializedName("university_description")
+    val description:String?,
+    @SerializedName("university_web_url")
+    val url:String?
 ): Serializable

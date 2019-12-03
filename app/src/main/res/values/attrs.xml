@@ -8,6 +8,7 @@
 
         <attr name="placeholder_type" format="enum">
             <enum name="NO_INTERNET_CONNECTION" value="0"/>
+            <enum name="NO_DATA_FOUND" value="0"/>
         </attr>
     </declare-styleable>
 </resources>
