@@ -11,6 +11,8 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.databaseapplication.R
 import com.example.databaseapplication.callbacks.UniversalClickListener
 import com.example.databaseapplication.callbacks.UniversalViewClickListener
+import com.example.databaseapplication.mvp.models.ItemAdapter
+import com.example.databaseapplication.mvp.models.Profession
 import com.example.databaseapplication.mvp.models.University
 import kotlinx.android.synthetic.main.university_item.view.*
 import org.jetbrains.anko.backgroundColor
@@ -18,11 +20,7 @@ import org.jetbrains.anko.textColor
 
 class UniversityListAdapter(val lang: Int) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val list: ArrayList<University>?
-
-    init {
-        list = ArrayList()
-    }
+    private val mlist: ArrayList<ItemAdapter> = ArrayList()
 
     private var mItemSpaceOpenClickListener: UniversalClickListener? = null
     private var mItemMoreClickListener: UniversalClickListener? = null
@@ -35,7 +33,15 @@ class UniversityListAdapter(val lang: Int) : RecyclerView.Adapter<RecyclerView.V
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         try {
-            (holder as ViewHolder).bindData(list!![position], position)
+            when (mlist[position]) {
+                is University ->
+                    (holder as ViewHolder).bindData(mlist[position] as University, position)
+                is Profession ->
+                    (holder as ViewHolder).bindProffessionData(
+                        mlist[position] as Profession,
+                        position
+                    )
+            }
         } catch (e: Exception) {
         }
     }
@@ -47,29 +53,32 @@ class UniversityListAdapter(val lang: Int) : RecyclerView.Adapter<RecyclerView.V
     }
 
     override fun getItemCount(): Int {
-        if (list == null)
-            return 0
-        return list.size
+        return mlist.size
     }
 
-    fun addToList(list: ArrayList<University>) {
-        this.list?.addAll(list)
-    }
-
-    fun addToUniversityListPagination(
-        listUni: List<University>,
-        pagination: Boolean
-    ) {
-        if (!pagination)
-            list?.clear()
-        list?.addAll(listUni)
+    fun addToList(list: ArrayList<ItemAdapter>) {
+        mlist.clear()
+        mlist.addAll(list)
         notifyDataSetChanged()
     }
+
+//    fun addToUniversityListPagination(
+//        listUni: List<University>,
+//        pagination: Boolean
+//    ) {
+//        if (!pagination)
+//            list?.clear()
+//        list?.addAll(listUni)
+//        notifyDataSetChanged()
+//    }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindData(item: University, position: Int) {
             itemView.apply {
                 item.apply {
+                    entScore.visibility = View.VISIBLE
+                    profession_name.visibility = View.VISIBLE
+                    chance_entrance.visibility = View.VISIBLE
                     speciality_name.text = speciality.nameSpeciality
                     university_name.text = name
                     profession_name.text = speciality.profession.nameProfession
@@ -95,13 +104,26 @@ class UniversityListAdapter(val lang: Int) : RecyclerView.Adapter<RecyclerView.V
                         .into(universityImage)
                 }
                 setOnClickListener {
-                    if (list != null) {
-                        mItemClickListener!!.onListClick(position, list)
-                    }
+                    mItemClickListener!!.onListClick(position, mlist)
                 }
 
             }
 
+        }
+
+        fun bindProffessionData(item: Profession, position: Int) {
+
+            itemView.apply {
+                item.apply {
+                    universityImage.visibility = View.VISIBLE
+                    speciality_name.text = nameProfession
+                    university_name.text = description
+                    entScore.visibility = View.GONE
+                    profession_name.visibility = View.GONE
+                    chance_entrance.visibility = View.GONE
+                    setOnClickListener(null)
+                }
+            }
         }
 
     }

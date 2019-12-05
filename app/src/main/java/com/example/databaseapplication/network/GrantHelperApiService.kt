@@ -1,5 +1,6 @@
 package com.example.databaseapplication.network
 
+import com.example.databaseapplication.mvp.models.ItemAdapter
 import com.example.databaseapplication.mvp.models.University
 import com.example.databaseapplication.mvp.models.User
 import io.reactivex.Observable
@@ -12,7 +13,7 @@ interface GrantHelperApiService {
     }
 
     @GET("university/")
-    fun getSpecialities(): Observable<Response<ArrayList<University>>>
+    fun getSpecialities(): Observable<Response<ArrayList<ItemAdapter>>>
 
     @GET("university/{university_id}")
     fun getUniversityById(

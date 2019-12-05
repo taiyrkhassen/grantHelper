@@ -19,4 +19,4 @@ data class University(
     val description:String?,
     @SerializedName("university_web_url")
     val url:String?
-): Serializable
+): Serializable, ItemAdapter()

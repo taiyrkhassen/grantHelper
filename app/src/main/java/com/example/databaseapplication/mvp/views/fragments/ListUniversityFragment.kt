@@ -2,6 +2,7 @@ package com.example.databaseapplication.mvp.views.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,12 +12,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.databaseapplication.R
 import com.example.databaseapplication.adapters.UniversityListAdapter
 import com.example.databaseapplication.callbacks.UniversalClickListener
+import com.example.databaseapplication.mvp.models.ItemAdapter
 import com.example.databaseapplication.mvp.models.Profession
 import com.example.databaseapplication.mvp.models.Speciality
 import com.example.databaseapplication.mvp.models.University
 import com.example.databaseapplication.mvp.presenters.ListSpecialityPresenter
 import com.example.databaseapplication.mvp.views.activities.DetailUniversityActivity
 import com.example.databaseapplication.mvp.views.activities.NoInternetConnectionActivity
+import com.example.databaseapplication.mvp.views.dialogs.CheckFavoutesSubDialog
 import com.example.databaseapplication.mvp.views.interfaces.ListSpecialityView
 import kotlinx.android.synthetic.main.fragment_university_list.*
 import kotlinx.android.synthetic.main.fragment_university_list.view.*
@@ -28,11 +31,11 @@ class ListUniversityFragment : Fragment(), ListSpecialityView {
 
     lateinit var recyclerView: RecyclerView
 
-
+    var testImproveList = ArrayList<ItemAdapter>()
     private var adapter: UniversityListAdapter = UniversityListAdapter(1)
 
     private var presenterList: ListSpecialityPresenter = ListSpecialityPresenter(this)
-    private var listUniversity: ArrayList<University> = ArrayList()
+    private var listUniversity: ArrayList<ItemAdapter> = ArrayList()
     private var isLoading = false
 
     override fun onCreateView(
@@ -49,6 +52,19 @@ class ListUniversityFragment : Fragment(), ListSpecialityView {
         super.onViewCreated(view, savedInstanceState)
         init(view)
         addToList()
+        list_choose_favourite.setOnClickListener {
+            val dialog = CheckFavoutesSubDialog()
+            dialog.setOnSubmitClickLister(object : UniversalClickListener {
+                override fun onListClick(position: Int, _list: Any) {
+                   // запрос на презентер отправляем стринги с листа лист join to string до этого еще
+                    //d("test_check", (_list as ArrayList<String>).toString())
+                    testImproveAdapter()
+                    adapter.addToList(testImproveList)
+                }
+
+            })
+            dialog.show(childFragmentManager, dialog::class.java.name)
+        }
     }
 
     override fun onStart() {
@@ -86,7 +102,6 @@ class ListUniversityFragment : Fragment(), ListSpecialityView {
                 }
             }
         })*/
-
         adapter.setOnItemClickListener(object : UniversalClickListener {
             override fun onListClick(position: Int, _list: Any) {
                 toUniversityDetails((_list as ArrayList<University> )[position])
@@ -95,7 +110,7 @@ class ListUniversityFragment : Fragment(), ListSpecialityView {
     }
     fun addToList(){
         val prof = Profession(
-            1,"Working travel"
+            1,"Working travel", "Ssdsasad"
         )
         val speciality = Speciality(
             0, "VTIPO",24,36,prof, 0.26
@@ -124,7 +139,7 @@ class ListUniversityFragment : Fragment(), ListSpecialityView {
         toast(msg)
     }
 
-    override fun onListLoadded(arrayList: ArrayList<University>) {
+    override fun onListLoadded(arrayList: ArrayList<ItemAdapter>) {
         fragmentUniversityListSwipeRefreshLayout.isRefreshing = false
         //adapter.addToUniversityListPagination(arrayList, isLoading)
         adapter.addToList(arrayList)
@@ -145,6 +160,30 @@ class ListUniversityFragment : Fragment(), ListSpecialityView {
 //                "name" to item.name
 //            )
 //        )
+    }
+
+    private fun testImproveAdapter(){
+        testImproveList.add(
+            Profession(
+                0,
+                "Programmer",
+                "aakfdslkfslkfflsdf dafmdskfm askfnm akf kmfsa"
+            )
+        )
+        testImproveList.add(
+            Profession(
+                2,
+                "Programmer",
+                "aakfdslkfslkfflsdf dafmdskfm askfnm akf kmfsa"
+            )
+        )
+        testImproveList.add(
+            Profession(
+                3,
+                "Programmer",
+                "aakfdslkfslkfflsdf dafmdskfm askfnm akf kmfsa"
+            )
+        )
     }
 
 
