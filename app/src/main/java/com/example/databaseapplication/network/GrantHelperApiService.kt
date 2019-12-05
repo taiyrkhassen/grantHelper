@@ -19,9 +19,12 @@ interface GrantHelperApiService {
         @Path("university_id") university_id:Int
     ) :Observable<Response<University>>
 
-    @POST("")
+    @GET("")
     fun sendInfo(
-        @Body data:Map<String, Any>
+        @Body data:Map<String,@JvmSuppressWildcards Any>
     ) :Observable<Response<User>>
+
+    @GET("")
+    fun getInfoProfileById(id:Int):Observable<Response<User>>
 
 }

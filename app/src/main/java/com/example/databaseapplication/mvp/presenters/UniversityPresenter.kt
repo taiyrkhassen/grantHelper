@@ -17,7 +17,8 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
 
-class UniversityPresenter(val viewState: DetailUniversityView) {
+class UniversityPresenter(val viewState: DetailUniversityView) : BasePresenter() {
+
 
     private var retrofit = NetworkClient.getRetrofit()
     var disposables = CompositeDisposable()
@@ -51,6 +52,10 @@ class UniversityPresenter(val viewState: DetailUniversityView) {
 
                 })
         )
+    }
+
+    override fun disposable() {
+        disposables.dispose()
     }
 
 }

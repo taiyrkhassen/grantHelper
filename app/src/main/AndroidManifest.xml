@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.databaseapplication">
 
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".DatabaseApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".DatabaseApp"
-        android:theme="@style/AppTheme">
-        <activity android:name=".mvp.views.activities.MainActivity"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".mvp.views.activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBarWithStatusBar">
 
         </activity>
-        <activity android:name=".mvp.views.activities.NoInternetConnectionActivity">
-        </activity>
-        <activity android:name=".mvp.views.activities.DetailUniversityActivity"></activity>
+        <activity android:name=".mvp.views.activities.NoInternetConnectionActivity"/>
+        <activity
+            android:name=".mvp.views.activities.DetailUniversityActivity"
+            android:theme="@style/AppTheme.NoActionBarWithStatusBar" />
         <activity android:name=".mvp.views.activities.BlankActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

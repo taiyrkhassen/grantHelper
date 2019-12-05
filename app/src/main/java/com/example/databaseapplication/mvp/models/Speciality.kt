@@ -5,7 +5,7 @@ import java.io.Serializable
 
 data class Speciality(
     @SerializedName("id")
-    val id:Int,
+    val id:Int= 0,
     @SerializedName("name")
     val nameSpeciality: String?,
     @SerializedName("ent_score_russian")

@@ -24,25 +24,11 @@ class ListSpecialityPresenter(val view: ListSpecialityView) : BasePresenter() {
 
 
 
-    fun getListSpeciality(isPagination: Boolean) {
+    fun getListSpeciality() {
 
         if(!checkInternetConnection()){
             view.noInternetConnection()
         }
-
-       /* view.onListLoading(false)
-        if (isPagination) {
-            if (mLoadedAll) {
-                view.onListLoading(true)
-                return
-            }
-            mCurrentPage++
-            view.onListLoading(false)
-        } else {
-            mCurrentPage = 1
-            view.onListLoading(false)
-        }*/
-
         disposables.add(
             apiService.getSpecialities()
                 .subscribeOn(Schedulers.io())
@@ -68,6 +54,11 @@ class ListSpecialityPresenter(val view: ListSpecialityView) : BasePresenter() {
                 })
         )
     }
+
+    override fun disposable() {
+        disposables.dispose()
+    }
+
 
 
 }

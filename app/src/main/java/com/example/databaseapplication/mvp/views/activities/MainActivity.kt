@@ -15,14 +15,15 @@ import com.example.databaseapplication.mvp.views.interfaces.MainView
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
-class MainActivity : AppCompatActivity(), MainView {
+class MainActivity : BaseActivity(), MainView {
 
 
     var presenter: MainPresenter = MainPresenter(this)
 
-    private var fragmentProfile:Fragment = ProfileFragment(presenter)
+    private var fragmentProfile:Fragment = ProfileFragment()
     private var fragmentList:Fragment = ListUniversityFragment()
     private var fragmentInfo:Fragment = InformationAboutUsFragment()
 
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity(), MainView {
     companion object {
         const val TAB = "TAB"
     }
+
 
     private val mOnNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener {
@@ -60,7 +62,7 @@ class MainActivity : AppCompatActivity(), MainView {
         }
 
     override fun noInternetConnection() {
-        toast("No internet connection")
+        startActivity<NoInternetConnectionActivity>()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,7 +75,7 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     override fun changeFragment(fragment: Fragment) {
-        if(presenter.isOnline()) {
+        if(presenter.checkInternetConnection()) {
             fragmentManager.beginTransaction()
                 .hide(active).show(fragment).commit()
             active = fragment

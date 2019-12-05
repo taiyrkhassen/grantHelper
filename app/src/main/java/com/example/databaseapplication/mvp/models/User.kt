@@ -7,7 +7,7 @@ data class User(
     @SerializedName("ent_score_user")
     val ent_score_user:Int?,
     @SerializedName("first_name_user")
-    val first_name_user:String?,
+    var first_name_user:String?,
     @SerializedName("last_name_user")
     val last_name_user:String?,
     @SerializedName("city_user")
@@ -15,7 +15,9 @@ data class User(
     @SerializedName("language_user")
     val language_user:String?,
     @SerializedName("prof_subject_one")
-    val prof_subject_one:Int,
+    val prof_subject_one:String,
     @SerializedName("prof_subject_two")
-    val prof_subject_two:Int
+    val prof_subject_two:String,
+    @SerializedName("id")
+    val id_user:Int = 0
     ):Serializable

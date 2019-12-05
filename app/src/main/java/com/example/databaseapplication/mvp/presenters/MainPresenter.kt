@@ -19,33 +19,16 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_university_list.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 
-class MainPresenter(var mainView: MainView){
+class MainPresenter(var mainView: MainView): BasePresenter(){
+
+    override fun disposable() {
+
+    }
+
     var disposables = CompositeDisposable()
     private var retrofit = NetworkClient.getRetrofit()
     val apiService = retrofit.create(GrantHelperApiService::class.java)
 
-    //Сделать чтобы через систем сервис определял конекшн
-    fun isOnline():Boolean{
-        return true
-    }
 
-   /* @SuppressLint("CheckResult")
-    fun getByParams(){
-        val fr = ListUniversityFragment()
-        mainView.changeFragment(fr)
-        val adapter = fr.adapter
-        loadRepository.getRecommedation()
-            ?.subscribeOn(Schedulers.io())
-            ?.observeOn(AndroidSchedulers.mainThread())
-            ?.subscribe({
-                Log.i("start","start")
-                for(i in it){
-                    Log.i("start",i.name.toString())
-                }
-            },
-            {
-
-            })
-    }*/
 
 }

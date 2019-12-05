@@ -11,12 +11,13 @@ import org.json.JSONObject
 
 class BlankPresenter(val view: BlankView) : BasePresenter() {
 
+
     var disposables = CompositeDisposable()
     private var retrofit = NetworkClient.getRetrofit()
 
     val apiService = retrofit.create(GrantHelperApiService::class.java)
 
-    fun sendInfo(data: Map<String, Any>) {
+    fun sendInfo(data: HashMap<String, Any>) {
 
         if (!checkInternetConnection()) {
             view.noInternetConnection()
@@ -30,7 +31,7 @@ class BlankPresenter(val view: BlankView) : BasePresenter() {
                     when (it.code()) {
                         200 -> {
                             i("tag_send", "result: ${it.body().toString()}")
-                             view.onSuccessSend()
+                            view.onSuccessSend(it.body()!!.id_user)
                         }
                         else -> {
                             val jObjError = JSONObject(it.errorBody()!!.string())
@@ -39,19 +40,15 @@ class BlankPresenter(val view: BlankView) : BasePresenter() {
                             } catch (e: Exception) {
                                 view.onFailed("Попробуйте позже, ${it.code()}")
                             }
-
                         }
-
-
                     }
                 }, {
 
                 })
-
-
         )
-
-
     }
 
+    override fun disposable() {
+        disposables.dispose()
+    }
 }

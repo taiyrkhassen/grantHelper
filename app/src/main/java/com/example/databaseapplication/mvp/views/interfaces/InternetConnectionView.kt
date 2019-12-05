@@ -1,5 +1,7 @@
 package com.example.databaseapplication.mvp.views.interfaces
 
-interface InternetConnectionView {
+import com.example.databaseapplication.callbacks.PlaceHolderActionCallback
+
+interface InternetConnectionView: PlaceHolderActionCallback{
 
 }

@@ -8,26 +8,25 @@
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:theme="@style/Widget.AppCompat.ActionBar">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsingToolbarSpaceDetailView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:expandedTitleMarginEnd="64dp"
-            app:expandedTitleMarginStart="48dp"
+            android:layout_height="match_parent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <RelativeLayout
                 android:id="@+id/relativeLayoutSpaceViewPhoto"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:orientation="vertical">
+                android:layout_height="300dp">
 
                 <ImageView
                     android:id="@+id/detailActivityUniversityImage"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/nu" />
             </RelativeLayout>
 
             <androidx.appcompat.widget.Toolbar
@@ -40,18 +39,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageButton
-                        android:id="@+id/detailBackButton"
-                        android:onClick="onBackPressed"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:foreground="?attr/selectableItemBackgroundBorderless"
-                        android:padding="8dp"
-                        android:src="@drawable/ic_back_button" />
 
                 </LinearLayout>
             </androidx.appcompat.widget.Toolbar>
@@ -61,7 +48,7 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/detailScrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#fff"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -115,6 +102,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
+                    android:text="@string/test_string"
                     android:fontFamily="@font/roboto"
                     android:textColor="#000"
                     android:textSize="18sp" />
@@ -170,18 +158,8 @@
 
         </RelativeLayout>
 
+
     </androidx.core.widget.NestedScrollView>
 
-    <com.example.databaseapplication.ui.CustomPlaceholderView
-        android:id="@+id/noDataFound_detail"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:placeholder_type="NO_DATA_FOUND"
-        app:animation_placeholder="@raw/lego_loader"
-        app:text_placeholder="Упс.. Обьект с таким айди не найден"
-        app:desc_placeholder="Попробуйте еще раз"
-        app:button_title_placeholder="Повторить"
-        android:layout_gravity="center"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

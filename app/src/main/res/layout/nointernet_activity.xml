@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <com.example.databaseapplication.ui.CustomPlaceholderView
-        android:id="@+id/noInternetConnectionPlaceHolder"
+        android:id="@+id/noInternetConnectionPlaceHolder_activity"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:placeholder_type="NO_INTERNET_CONNECTION"
-        app:animation_placeholder="@raw/car"
-        app:text_placeholder="Нет подключения к интернернету"
-        app:desc_placeholder="Пожалуйста, убедитесь, что ваше соединение в порядке и попробуйте снова."
+        android:layout_gravity="center"
+        app:animation_placeholder="@raw/lego_loader"
         app:button_title_placeholder="Повторить"
-        android:layout_gravity="center"/>
+        app:desc_placeholder="Пожалуйста, убедитесь, что ваше соединение в порядке и попробуйте снова."
+        app:placeholder_type="NO_INTERNET_CONNECTION"
+        app:text_placeholder="Нет подключения к интернернету" />
 
 
 </LinearLayout>

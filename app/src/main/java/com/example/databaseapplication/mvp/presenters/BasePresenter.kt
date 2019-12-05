@@ -19,4 +19,6 @@ abstract class BasePresenter {
             netInfo != null && netInfo.isConnectedOrConnecting
         }
     }
+
+    abstract fun disposable()
 }

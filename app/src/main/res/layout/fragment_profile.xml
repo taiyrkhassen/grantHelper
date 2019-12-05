@@ -26,7 +26,6 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
-                    android:drawablePadding="16dp"
                     android:paddingStart="16dp"
                     android:paddingTop="8dp"
                     android:paddingEnd="16dp"
@@ -102,7 +101,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="#000"
                             android:textSize="24sp"
-                            tool:text="Хасенов Таир" />
+                            android:text="Хасенов Таир" />
 
                         <ImageView
                             android:id="@+id/fragmentProfileImageViewConfirmed"

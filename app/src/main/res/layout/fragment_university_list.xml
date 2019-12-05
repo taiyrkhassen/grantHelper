@@ -63,24 +63,6 @@
                 android:padding="7dp">
 
                 <TextView
-                    android:id="@+id/fragmentUniversityListSortSpecialityButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginRight="5dp"
-                    android:background="@drawable/rounded_shape_white"
-                    android:drawableStart="@drawable/ic_spec_sort"
-                    android:drawablePadding="8dp"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:paddingStart="12dp"
-                    android:paddingTop="8dp"
-                    android:paddingEnd="12dp"
-                    android:paddingBottom="8dp"
-                    android:text="Сортировка\n по специальности"
-                    android:textColor="#4A5EA8" />
-
-                <TextView
                     android:id="@+id/fragmentUniversityListSortUniversityButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -88,14 +70,14 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginLeft="8dp"
                     android:background="@drawable/rounded_shape_white"
-                    android:drawableStart="@drawable/ic_uni_sort"
+                    android:drawableStart="@drawable/ic_heart"
                     android:drawablePadding="8dp"
                     android:foreground="?attr/selectableItemBackground"
                     android:paddingStart="12dp"
                     android:paddingTop="8dp"
                     android:paddingEnd="12dp"
                     android:paddingBottom="8dp"
-                    android:text="Сортировка\n по университету"
+                    android:text="Выбор профессии по интересам"
                     android:textColor="#4A5EA8" />
 
             </LinearLayout>

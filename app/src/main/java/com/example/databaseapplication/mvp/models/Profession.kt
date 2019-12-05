@@ -6,7 +6,7 @@ import java.io.Serializable
 
 data class Profession(
     @SerializedName("id")
-    val id:Int?,
+    val id:Int = 0,
     @SerializedName("name")
     val nameProfession:String?
 ):Serializable

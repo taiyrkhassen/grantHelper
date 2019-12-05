@@ -18,7 +18,7 @@ import org.jetbrains.anko.textColor
 
 class UniversityListAdapter(val lang: Int) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val list: MutableList<University>?
+    private val list: ArrayList<University>?
 
     init {
         list = ArrayList()
@@ -95,7 +95,9 @@ class UniversityListAdapter(val lang: Int) : RecyclerView.Adapter<RecyclerView.V
                         .into(universityImage)
                 }
                 setOnClickListener {
-                    mItemClickListener!!.onListClick(position, "")
+                    if (list != null) {
+                        mItemClickListener!!.onListClick(position, list)
+                    }
                 }
 
             }
