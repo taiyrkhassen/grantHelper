@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="special_suggestion_shape_size">550dp</dimen>
+    <dimen name="special_suggestion_description_offset_y">45dp</dimen>
+    <dimen name="special_suggestion_description_offset_x">7dp</dimen>
+
+</resources>

@@ -86,7 +86,7 @@
                         android:ellipsize="end"
                         android:text="Политех лучше всех"
                         android:textColor="#000"
-                        android:textSize="12sp" />
+                        android:textSize="16sp" />
                     <TextView
 
                         android:id="@+id/profession_name"

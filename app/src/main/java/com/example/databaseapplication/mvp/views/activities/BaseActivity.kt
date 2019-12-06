@@ -6,6 +6,7 @@ import android.net.ConnectivityManager
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.databaseapplication.mvp.models.User
 import kotlin.math.log
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -15,7 +16,6 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedPref = getSharedPreferences("pref_name", Context.MODE_PRIVATE)
-
     }
 
     fun isLoggedIn(): Boolean {
@@ -27,7 +27,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun getId(): Int {
-        return sharedPref.getInt("user_id", 0)
+        return sharedPref.getInt("user_id", 1)
     }
 
     fun setId(id: Int) {

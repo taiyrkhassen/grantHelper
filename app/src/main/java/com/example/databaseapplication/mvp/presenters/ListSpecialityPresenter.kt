@@ -24,13 +24,12 @@ class ListSpecialityPresenter(val view: ListSpecialityView) : BasePresenter() {
 
 
 
-    fun getListSpeciality() {
-
+    fun getListSpeciality(id:Int) {
         if(!checkInternetConnection()){
             view.noInternetConnection()
         }
         disposables.add(
-            apiService.getSpecialities()
+            apiService.getSpecialities(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

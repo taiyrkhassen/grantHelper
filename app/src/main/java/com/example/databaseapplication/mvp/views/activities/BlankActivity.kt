@@ -2,6 +2,7 @@ package com.example.databaseapplication.mvp.views.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log.d
 import androidx.appcompat.app.AppCompatActivity
 import com.example.databaseapplication.R
 import com.example.databaseapplication.mvp.models.User
@@ -24,10 +25,8 @@ class BlankActivity : BaseActivity(), BlankView {
         if (isOnline()) {
             material_button.setOnClickListener {
                 if (checkAllFields()) {
-                   // presenter.sendInfo(getHashMap())
-                    //setId()
+                   presenter.sendInfo(getHashMap())
                     startActivity<MainActivity>()
-                    setLogged(true)
                 } else {
                     toast("Пожалуйста заполните все поля!")
                 }
@@ -45,6 +44,7 @@ class BlankActivity : BaseActivity(), BlankView {
 
     override fun onFailed(msg: String) {
         toast(msg)
+        d("back_taiyr", msg)
     }
 
     fun doLogIn(){
@@ -71,11 +71,11 @@ class BlankActivity : BaseActivity(), BlankView {
         val data = HashMap<String, Any>()
         data["first_name_user"] = name_user.text.toString()
         data["last_name_user"] = lastname_user.text.toString()
-        data["ent_score"] = entScore_blank.text.toString().toInt()
-        data["prof_sub_one"] = first_elective.selectedItem.toString()
-        data["prof_sub_two"] = second_elective.selectedItem.toString()
-        data["city"] = city.selectedItem.toString()
-        data["language"] = when (radio_group.checkedRadioButtonId) {
+        data["ent_score_user"] = entScore_blank.text.toString().toInt()
+        data["prof_subject_one"] = first_elective.selectedItem.toString()
+        data["prof_subject_two"] = second_elective.selectedItem.toString()
+        data["city_user"] = city.selectedItem.toString()
+        data["language_user"] = when (radio_group.checkedRadioButtonId) {
             R.id.rus_bt -> {
                 "Русский"
             }
@@ -87,7 +87,7 @@ class BlankActivity : BaseActivity(), BlankView {
         return data
     }
 
-    private fun makeUserObject():User {
+    /*private fun makeUserObject():User {
         user = User(
             entScore_blank.text.toString().toInt(),
             name_user.text.toString(),
@@ -106,7 +106,7 @@ class BlankActivity : BaseActivity(), BlankView {
             second_elective.selectedItem.toString()
         )
         return user
-    }
+    }*/
 
     override fun onDestroy() {
         super.onDestroy()

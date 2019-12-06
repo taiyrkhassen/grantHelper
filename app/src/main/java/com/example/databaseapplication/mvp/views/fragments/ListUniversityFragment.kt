@@ -17,12 +17,16 @@ import com.example.databaseapplication.mvp.models.Profession
 import com.example.databaseapplication.mvp.models.Speciality
 import com.example.databaseapplication.mvp.models.University
 import com.example.databaseapplication.mvp.presenters.ListSpecialityPresenter
+import com.example.databaseapplication.mvp.views.activities.BaseActivity
 import com.example.databaseapplication.mvp.views.activities.DetailUniversityActivity
 import com.example.databaseapplication.mvp.views.activities.NoInternetConnectionActivity
 import com.example.databaseapplication.mvp.views.dialogs.CheckFavoutesSubDialog
 import com.example.databaseapplication.mvp.views.interfaces.ListSpecialityView
+import com.example.databaseapplication.ui.SpecialSuggest
 import kotlinx.android.synthetic.main.fragment_university_list.*
 import kotlinx.android.synthetic.main.fragment_university_list.view.*
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.support.v4.act
 import org.jetbrains.anko.support.v4.intentFor
 import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
@@ -37,7 +41,7 @@ class ListUniversityFragment : Fragment(), ListSpecialityView {
     private var presenterList: ListSpecialityPresenter = ListSpecialityPresenter(this)
     private var listUniversity: ArrayList<ItemAdapter> = ArrayList()
     private var isLoading = false
-
+    var specSuggested = SpecialSuggest()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -52,11 +56,20 @@ class ListUniversityFragment : Fragment(), ListSpecialityView {
         super.onViewCreated(view, savedInstanceState)
         init(view)
         addToList()
+
+        specSuggested.suggestView(context!!, list_content, list_choose_favourite,
+            "Вы можете подобрать професси исходя из ваших предпочтений в предметах!")
+
+        //presenterList.getListSpeciality((activity as BaseActivity).getId())
+
+        fragmentUniversityListSwipeRefreshLayout.isRefreshing = false
+
         list_choose_favourite.setOnClickListener {
             val dialog = CheckFavoutesSubDialog()
             dialog.setOnSubmitClickLister(object : UniversalClickListener {
                 override fun onListClick(position: Int, _list: Any) {
                    // запрос на презентер отправляем стринги с листа лист join to string до этого еще
+
                     //d("test_check", (_list as ArrayList<String>).toString())
                     testImproveAdapter()
                     adapter.addToList(testImproveList)
@@ -121,7 +134,30 @@ class ListUniversityFragment : Fragment(), ListSpecialityView {
             resources.getString(R.string.test_string),
             "https://pillowz.kz"
         )
+        val university2 = University(
+            1, "Nazarbaev University", "87089642881","Astana",speciality,
+            "http://testapi.pillowz.kz/media/photos/%2B77012490135/7vzt9fz4k3z6gg9g8t2f1b4bu.JPEG",
+            resources.getString(R.string.test_string),
+            "https://pillowz.kz"
+        )
+        val university3 = University(
+            1, "Nazarbaev University", "87089642881","Astana",speciality,
+            "http://testapi.pillowz.kz/media/photos/%2B77012490135/7vzt9fz4k3z6gg9g8t2f1b4bu.JPEG",
+            resources.getString(R.string.test_string),
+            "https://pillowz.kz"
+        )
+        val university4 = University(
+            1, "Nazarbaev University", "87089642881","Astana",speciality,
+            "http://testapi.pillowz.kz/media/photos/%2B77012490135/7vzt9fz4k3z6gg9g8t2f1b4bu.JPEG",
+            resources.getString(R.string.test_string),
+            "https://pillowz.kz"
+        )
         listUniversity.add(university)
+
+        listUniversity.add(university2)
+
+        listUniversity.add(university3)
+        listUniversity.add(university4)
         adapter.addToList(listUniversity)
     }
 
@@ -135,7 +171,7 @@ class ListUniversityFragment : Fragment(), ListSpecialityView {
     }
 
     override fun onListLoadedFail(msg: String) {
-        fragmentUniversityListSwipeRefreshLayout.isRefreshing = true
+       // fragmentUniversityListSwipeRefreshLayout.isRefreshing = true
         toast(msg)
     }
 

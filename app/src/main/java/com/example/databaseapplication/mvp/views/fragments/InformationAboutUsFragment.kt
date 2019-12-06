@@ -27,7 +27,7 @@ class InformationAboutUsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         imageView = view.findViewById(R.id.image_trans)
-        val imageToShow: Array<Int> = arrayOf(R.drawable.photo_one, R.drawable.photo_two)
+        val imageToShow: Array<Int> = arrayOf(R.drawable.photo_one, R.drawable.team)
         animate(imageView, imageToShow, 0, true)
 
     }

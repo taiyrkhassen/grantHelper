@@ -9,23 +9,23 @@ import retrofit2.http.*
 
 interface GrantHelperApiService {
     companion object {
-        val base_ul = "http://192.168.1.115:8000/speciality/"
+        val base_ul = "http://172.20.10.2:8000/"
     }
 
-    @GET("university/")
-    fun getSpecialities(): Observable<Response<ArrayList<ItemAdapter>>>
+    @POST("getByMl/1/{id}")
+    fun getSpecialities(@Path("id")id_user:Int): Observable<Response<ArrayList<ItemAdapter>>>
 
     @GET("university/{university_id}")
     fun getUniversityById(
         @Path("university_id") university_id:Int
     ) :Observable<Response<University>>
 
-    @GET("")
+    @POST("create")
     fun sendInfo(
         @Body data:Map<String,@JvmSuppressWildcards Any>
     ) :Observable<Response<User>>
 
-    @GET("")
-    fun getInfoProfileById(id:Int):Observable<Response<User>>
+    @GET("get/{id}")
+    fun getInfoProfileById(@Path("id") id:Int):Observable<Response<User>>
 
 }

@@ -8,12 +8,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.databaseapplication.R
 import kotlinx.android.synthetic.main.item_checkbox.view.*
 import org.jetbrains.anko.sdk27.coroutines.onCheckedChange
+import android.R.attr.checked
+
+
+
+
+
 
 class FavouriteChecksAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val favList: ArrayList<String> = ArrayList()
 
     var mReadyList = ArrayList<String>()
+
+    var mDataset: ArrayList<String>? = null
+    var checked: BooleanArray? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val itemView = LayoutInflater.from(parent.context)
@@ -43,9 +52,13 @@ class FavouriteChecksAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         return mReadyList
     }
 
+
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindData(item: String, position: Int) {
             itemView.checkbox_fav.text = item
+
+
             itemView.checkbox_fav.onCheckedChange { buttonView, isChecked ->
                 if (isChecked) {
                     mReadyList.add(buttonView?.text.toString())

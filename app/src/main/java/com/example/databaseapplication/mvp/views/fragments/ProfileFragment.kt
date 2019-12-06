@@ -36,7 +36,8 @@ class ProfileFragment : Fragment(), ProfileView{
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-       // presenter.getUserInfo((activity as BaseActivity).getId())
+
+        presenter.getUserInfo((activity as BaseActivity).getId())
 
         fragmentProfileButtonEdit.setOnClickListener {
             startActivity<BlankActivity>()
@@ -45,8 +46,10 @@ class ProfileFragment : Fragment(), ProfileView{
         }
     }
 
+
     @SuppressLint("SetTextI18n")
     override fun getInfoProfile(user: User) {
+        (activity as BaseActivity).setId(user.id_user)
         fragmentProfileUserName.text = user.first_name_user
         fragmentProfileAddress.text = "${user.city_user}, Kazakhstan"
         profile_first_prof_sub.text = user.prof_subject_one

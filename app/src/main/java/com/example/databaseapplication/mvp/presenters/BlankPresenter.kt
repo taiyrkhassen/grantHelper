@@ -18,11 +18,9 @@ class BlankPresenter(val view: BlankView) : BasePresenter() {
     val apiService = retrofit.create(GrantHelperApiService::class.java)
 
     fun sendInfo(data: HashMap<String, Any>) {
-
         if (!checkInternetConnection()) {
             view.noInternetConnection()
         }
-
         disposables.add(
             apiService.sendInfo(data)
                 .subscribeOn(Schedulers.io())
@@ -30,6 +28,10 @@ class BlankPresenter(val view: BlankView) : BasePresenter() {
                 .subscribe({
                     when (it.code()) {
                         200 -> {
+                            i("tag_send", "result: ${it.body().toString()}")
+                            view.onSuccessSend(it.body()!!.id_user)
+                        }
+                        201 ->{
                             i("tag_send", "result: ${it.body().toString()}")
                             view.onSuccessSend(it.body()!!.id_user)
                         }

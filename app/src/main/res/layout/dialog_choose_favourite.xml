@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:margin="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <FrameLayout
@@ -33,42 +34,23 @@
             android:src="@drawable/ic_close" />
 
     </FrameLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        app:layout_constraintTop_toBottomOf="@+id/dialogOpenRequestDetailHeader"
-        android:id="@+id/recycler_checkbox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/dialog_rel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
-    <RelativeLayout
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:id="@+id/dialog_rel"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_checkbox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="end">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialogOpenRequestDetailHeader" />
 
-        <TextView
-            android:id="@+id/dialog_submit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_shape_filled"
-            android:drawablePadding="8dp"
-            android:foreground="?attr/selectableItemBackground"
-            android:paddingStart="12dp"
-            android:paddingTop="8dp"
-            android:paddingEnd="12dp"
-            android:paddingBottom="8dp"
-            android:text="Submit"
-            android:textSize="18sp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginEnd="10dp"
-            android:textColor="#fff"/>
-
-    </RelativeLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/dialog_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="#4A5EA8"
+        android:src="@drawable/ic_check_black_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

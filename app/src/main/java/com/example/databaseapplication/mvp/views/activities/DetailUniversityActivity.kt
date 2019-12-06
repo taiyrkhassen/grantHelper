@@ -34,14 +34,15 @@ class DetailUniversityActivity : BaseActivity(), DetailUniversityView {
         item_Uni_test = intent.getSerializableExtra("item") as University
         onUniversityLoaded_test(item_Uni_test)
         //presenterDetail.getUniversity(id_university)
+
         setSupportActionBar(toolbarDetail)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
+
         toolbarDetail?.setNavigationOnClickListener {
             finish()
         }
 
-//CollapsingToolbar
         collapsingToolbarSpaceDetailView.setExpandedTitleColor(
             ContextCompat.getColor(
                 this,
@@ -54,7 +55,7 @@ class DetailUniversityActivity : BaseActivity(), DetailUniversityView {
                 255,
                 255
             )
-        ) //Color of your title
+        )
 
 
     }
