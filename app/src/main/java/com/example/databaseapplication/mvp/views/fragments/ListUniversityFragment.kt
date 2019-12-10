@@ -59,7 +59,7 @@ class ListUniversityFragment : Fragment(), ListSpecialityView {
 
         specSuggested.suggestView(context!!, list_content, list_choose_favourite,
             "Вы можете подобрать професси исходя из ваших предпочтений в предметах!")
-
+        //после налаживания бэка легко подключить презентеры
         //presenterList.getListSpeciality((activity as BaseActivity).getId())
 
         fragmentUniversityListSwipeRefreshLayout.isRefreshing = false
