@@ -58,11 +58,11 @@ class ListUniversityFragment : Fragment(), ListSpecialityView {
         addToList()
 
         specSuggested.suggestView(context!!, list_content, list_choose_favourite,
-            "Вы можете подобрать професси исходя из ваших предпочтений в предметах!")
+            "Вы можете подобрать професси исходя из ваших предпочтений в предметах!", "top", "right")
         //после налаживания бэка легко подключить презентеры
         //presenterList.getListSpeciality((activity as BaseActivity).getId())
 
-        fragmentUniversityListSwipeRefreshLayout.isRefreshing = false
+       // fragmentUniversityListSwipeRefreshLayout.isRefreshing = false
 
         list_choose_favourite.setOnClickListener {
             val dialog = CheckFavoutesSubDialog()
@@ -71,8 +71,8 @@ class ListUniversityFragment : Fragment(), ListSpecialityView {
                    // запрос на презентер отправляем стринги с листа лист join to string до этого еще
 
                     //d("test_check", (_list as ArrayList<String>).toString())
-                    testImproveAdapter()
-                    adapter.addToList(testImproveList)
+                    //testImproveAdapter()
+                    adapter.addToList(_list as ArrayList<ItemAdapter>)
                 }
 
             })
@@ -167,7 +167,7 @@ class ListUniversityFragment : Fragment(), ListSpecialityView {
 
     override fun onListLoading(isDone: Boolean) {
         isLoading = !isDone
-        fragmentUniversityListSwipeRefreshLayout.isRefreshing = !isDone
+        //fragmentUniversityListSwipeRefreshLayout.isRefreshing = !isDone
     }
 
     override fun onListLoadedFail(msg: String) {
@@ -176,14 +176,14 @@ class ListUniversityFragment : Fragment(), ListSpecialityView {
     }
 
     override fun onListLoadded(arrayList: ArrayList<ItemAdapter>) {
-        fragmentUniversityListSwipeRefreshLayout.isRefreshing = false
+        //fragmentUniversityListSwipeRefreshLayout.isRefreshing = false
         //adapter.addToUniversityListPagination(arrayList, isLoading)
         adapter.addToList(arrayList)
     }
 
     override fun ListEmpty() {
         noDataFound.visibility = View.VISIBLE
-        fragmentUniversityListSwipeRefreshLayout.isRefreshing = false
+        //fragmentUniversityListSwipeRefreshLayout.isRefreshing = false
     }
 
     private fun toUniversityDetails(item:University) {

@@ -25,7 +25,7 @@ class BlankActivity : BaseActivity(), BlankView {
         if (isOnline()) {
             material_button.setOnClickListener {
                 if (checkAllFields()) {
-                   presenter.sendInfo(getHashMap())
+                   //presenter.sendInfo(getHashMap())
                     startActivity<MainActivity>()
                 } else {
                     toast("Пожалуйста заполните все поля!")

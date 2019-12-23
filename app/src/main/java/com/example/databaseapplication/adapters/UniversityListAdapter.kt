@@ -115,7 +115,7 @@ class UniversityListAdapter(val lang: Int) : RecyclerView.Adapter<RecyclerView.V
 
             itemView.apply {
                 item.apply {
-                    universityImage.visibility = View.VISIBLE
+                    universityImage.visibility = View.GONE
                     speciality_name.text = nameProfession
                     university_name.text = description
                     entScore.visibility = View.GONE

@@ -8,8 +8,9 @@ import java.io.Serializable
 data class Profession(
     @SerializedName("id")
     val id:Int = 0,
-    @SerializedName("name")
+    @SerializedName("professionName")
     val nameProfession:String?,
     @SerializedName("description")
     val description:String?
+
 ):Serializable, ItemAdapter()

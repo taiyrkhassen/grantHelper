@@ -51,7 +51,7 @@
 
                 <LinearLayout
                     android:paddingBottom="16dp"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:id="@+id/container_speciality_univer"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +70,7 @@
                         android:id="@+id/speciality_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="left"
+                        android:layout_gravity="center"
                         android:ellipsize="end"
                         android:text="Вычислительная техника и программное обеспечение"
                         android:textColor="#000"
@@ -82,6 +82,7 @@
                         android:id="@+id/university_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAlignment="center"
                         android:layout_gravity="left"
                         android:ellipsize="end"
                         android:text="Политех лучше всех"

@@ -8,21 +8,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.databaseapplication.R
 import kotlinx.android.synthetic.main.item_checkbox.view.*
 import org.jetbrains.anko.sdk27.coroutines.onCheckedChange
-import android.R.attr.checked
-
-
-
-
+import com.example.databaseapplication.mvp.models.CheckBoxModel
 
 
 class FavouriteChecksAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val favList: ArrayList<String> = ArrayList()
+    private val favList: ArrayList<CheckBoxModel> = ArrayList()
 
     var mReadyList = ArrayList<String>()
 
-    var mDataset: ArrayList<String>? = null
-    var checked: BooleanArray? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val itemView = LayoutInflater.from(parent.context)
@@ -38,37 +32,31 @@ class FavouriteChecksAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         (holder as ViewHolder).bindData(favList[position], position)
     }
 
-    fun addToList(list: ArrayList<String>) {
+    fun addToList(list: ArrayList<CheckBoxModel>) {
         favList.clear()
         favList.addAll(list)
         notifyDataSetChanged()
     }
 
-    fun getList(): ArrayList<String> {
-        return mReadyList
-    }
-
-    fun getReadyList(): ArrayList<String> {
-        return mReadyList
-    }
-
-
-
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindData(item: String, position: Int) {
-            itemView.checkbox_fav.text = item
 
+        fun bindData(item: CheckBoxModel, position: Int) {
+            itemView.checkbox_fav.text = item.textBox
 
-            itemView.checkbox_fav.onCheckedChange { buttonView, isChecked ->
-                if (isChecked) {
-                    mReadyList.add(buttonView?.text.toString())
-                } else {
-                    if (mReadyList.contains(buttonView?.text.toString())) {
-                        mReadyList.remove(buttonView?.text.toString())
-                    }
+            itemView.checkbox_fav.onCheckedChange { _, isChecked ->
+                item.isCheckedModel = isChecked
+            }
+
+            if (item.isCheckedModel){
+                mReadyList.add(item.textBox)
+            } else {
+                if (mReadyList.contains(item.textBox)) {
+                    mReadyList.remove(item.textBox)
                 }
             }
 
+            itemView.checkbox_fav.isChecked = item.isCheckedModel
         }
     }
 }
+

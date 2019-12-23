@@ -37,7 +37,7 @@ class ProfileFragment : Fragment(), ProfileView{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        presenter.getUserInfo((activity as BaseActivity).getId())
+       // presenter.getUserInfo((activity as BaseActivity).getId())
 
         fragmentProfileButtonEdit.setOnClickListener {
             startActivity<BlankActivity>()
